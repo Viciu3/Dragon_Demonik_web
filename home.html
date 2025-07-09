@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠Главная | 🐉Dragon Demonik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #08f7fe;
+            --neon-pink: #fe53bb;
+            --neon-green: #09fbd3;
+            --dark-bg: #0f0e17;
+            --card-bg: #1a1a2e;
+            --section-bg: #16213e;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            margin: 0;
+            padding: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(9, 251, 211, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(254, 83, 187, 0.1) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            background: var(--section-bg);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar a {
+            color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            opacity: 0;
+            animation: fadeInDown 2.5s ease-out forwards;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(8, 247, 254, 0.7);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        .subtitle {
+            color: var(--neon-green);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 3s;
+        }
+        
+        .content {
+            background: var(--section-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--neon-pink);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 2s forwards;
+        }
+        
+        .content p {
+            line-height: 1.7;
+            color: #d1d1d1;
+            font-size: 1.1rem;
+        }
+        
+        .neon-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--neon-green);
+            border: 2px solid var(--neon-green);
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(9, 251, 211, 0.3);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        .neon-btn:hover {
+            background: var(--neon-green);
+            color: black;
+            box-shadow: 0 0 20px rgba(9, 251, 211, 0.6);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+            animation-delay: 2s;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        @keyframes pulse {
+            0% { 
+                text-shadow: 0 0 10px rgba(8, 247, 254, 0.7); 
+                box-shadow: 0 0 10px rgba(9, 251, 211, 0.3);
+            }
+            100% { 
+                text-shadow: 0 0 20px rgba(8, 247, 254, 0.9), 0 0 30px rgba(8, 247, 254, 0.5); 
+                box-shadow: 0 0 20px rgba(9, 251, 211, 0.6);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="navbar">
+        <a href="index.html">Главная</a>
+        <a href="home.html">О проекте</a>
+        <a href="rules.html">Правила</a>
+        <a href="https://t.me/DragonDemonic_bot">Бот</a>
+        <a href="https://t.me/DragonDemonic_channel">Новости</a>
+        <a href="https://t.me/DragonDemonic_chat">Беседа</a>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1 class="neon">Добро пожаловать в Dragon Demonik!</h1>
+            <div class="subtitle">Игровой Telegram-бот с уникальной атмосферой</div>
+        </header>
+        
+        <div class="content">
+            <p>
+                Dragon Demonik — это захватывающий игровой бот в Telegram, где вы можете погрузиться в мир приключений, сражений и магии! 
+                Присоединяйтесь к нашему сообществу, участвуйте в квестах, соревнуйтесь с другими игроками и станьте легендой!
+            </p>
+            <p>
+                Ознакомьтесь с правилами, чтобы сделать игру комфортной для всех участников. 
+                Следите за новостями в нашем канале и общайтесь в чате!
+            </p>
+            <a href="https://t.me/DragonDemonic_bot" class="neon-btn">Начать игру</a>
+            <a href="rules.html" class="neon-btn">Правила</a>
+        </div>
+        
+        <footer>
+            <p>© 2025 Игровой Telegram Бот. Все права защищены.</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 60,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#09fbd3"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 0.5,
+                           ilst="0.1",
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 200,
+                        "color": "#08f7fe",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speedഗ
+                        "speed": 0.8,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 180,
+                            "line_linked": {
+                                "opacity": 0.5
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 3
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
 
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.content');
+                elements.forEach(el => {
+                    const elementPosition = el.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    if(elementPosition < screenPosition) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translate(0)';
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll();
+            setTimeout(() => {
+                document.querySelector('header').style.opacity = '1';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
