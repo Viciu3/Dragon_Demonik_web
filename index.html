@@ -12,7 +12,6 @@
             --neon-pink: #fe53bb;
             --neon-green: #09fbd3;
             --dark-bg: #0f0e17;
-            --card-bg: #1a1a2e;
             --section-bg: #16213e;
         }
         
@@ -22,10 +21,12 @@
             color: white;
             margin: 0;
             padding: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(9, 251, 211, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(254, 83, 187, 0.1) 0%, transparent 50%);
             overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'), 
+                              linear-gradient(45deg, rgba(15, 14, 23, 0.9), rgba(22, 33, 62, 0.9));
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
         }
         
         .container {
@@ -35,32 +36,87 @@
         }
         
         .navbar {
-            background: var(--section-bg);
-            padding: 15px;
-            text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            background: rgba(15, 14, 23, 0.95);
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
-        .navbar a {
+        .navbar .main-links a {
             color: var(--neon-green);
             font-family: 'Orbitron', sans-serif;
             text-decoration: none;
-            margin: 0 20px;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
+            margin: 0 10px;
         }
         
-        .navbar a:hover {
+        .navbar .main-links a:hover {
             color: var(--neon-pink);
             text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
         }
         
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropbtn {
+            color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0 10px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        
+        .dropbtn:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(15, 14, 23, 0.95);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            right: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--neon-green);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--section-bg);
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
         header {
             text-align: center;
-            padding: 100px 0;
+            padding: 100px 0 40px;
             opacity: 0;
             animation: fadeInDown 2.5s ease-out forwards;
         }
@@ -113,16 +169,6 @@
             animation-delay: 2s;
         }
         
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
         @keyframes pulse {
             0% { 
                 text-shadow: 0 0 10px rgba(8, 247, 254, 0.7); 
@@ -152,15 +198,20 @@
     </style>
 </head>
 <body>
-    <div class="particles" id="particles-js"></div>
-    
     <div class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="home.html">О проекте</a>
-        <a href="rules.html">Правила</a>
-        <a href="https://t.me/DragonDemonic_bot">Бот</a>
-        <a href="https://t.me/DragonDemonic_channel">Новости</a>
-        <a href="https://t.me/DragonDemonic_chat">Беседа</a>
+        <div class="main-links">
+            <a href="index.html">Главная</a>
+            <a href="home.html">О проекте</a>
+            <a href="rules.html">Правила</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Меню</button>
+            <div class="dropdown-content">
+                <a href="https://t.me/DragonDemonic_bot">Бот</a>
+                <a href="https://t.me/DragonDemonic_channel">Новости</a>
+                <a href="https://t.me/DragonDemonic_chat">Беседа</a>
+            </div>
+        </div>
     </div>
     
     <div class="container">
@@ -175,98 +226,5 @@
             <p>© 2025 Игровой Telegram Бот. Все права защищены.</p>
         </footer>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 60,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#09fbd3"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 0.5,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 200,
-                        "color": "#08f7fe",
-                        "opacity": 0.2,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 0.8,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 180,
-                            "line_linked": {
-                                "opacity": 0.5
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 3
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-
-            setTimeout(() => {
-                document.querySelector('header').style.opacity = '1';
-            }, 300);
-        });
-    </script>
 </body>
 </html>
