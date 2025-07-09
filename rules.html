@@ -12,7 +12,6 @@
             --neon-pink: #fe53bb;
             --neon-green: #09fbd3;
             --dark-bg: #0f0e17;
-            --card-bg: #1a1a2e;
             --section-bg: #16213e;
         }
         
@@ -22,10 +21,12 @@
             color: white;
             margin: 0;
             padding: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(9, 251, 211, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(254, 83, 187, 0.1) 0%, transparent 50%);
             overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'), 
+                              linear-gradient(45deg, rgba(15, 14, 23, 0.9), rgba(22, 33, 62, 0.9));
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
         }
         
         .container {
@@ -35,33 +36,87 @@
         }
         
         .navbar {
-            background: var(--section-bg);
-            padding: 15px;
-            text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            background: rgba(15, 14, 23, 0.95);
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
-        .navbar a {
+        .navbar .main-links a {
             color: var(--neon-green);
             font-family: 'Orbitron', sans-serif;
             text-decoration: none;
-            margin: 0 20px;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
+            margin: 0 10px;
         }
         
-        .navbar a:hover {
+        .navbar .main-links a:hover {
             color: var(--neon-pink);
             text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
         }
         
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropbtn {
+            color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0 10px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        
+        .dropbtn:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(15, 14, 23, 0.95);
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            right: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--neon-green);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--section-bg);
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(254, 83, 187, 0.7);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
         header {
             text-align: center;
-            padding: 40px 0;
-            position: relative;
+            padding: 100px 0 40px;
             opacity: 0;
             animation: fadeInDown 2.5s ease-out forwards;
         }
@@ -115,279 +170,158 @@
             transform: translateX(-20px);
             animation: fadeInRight 1.5s forwards;
             animation-delay: calc(var(--delay) * 0.2s + 0.5s);
-       <<<<<<<
-            .rule-number {
-                color: var(--neon-green);
-                font-weight: bold;
-                margin-right: 10px;
-                font-family: 'Orbitron', sans-serif;
-            }
+        }
         
-            .rule-content {
-                line-height: 1.7;
-                color: #d1d1d1;
-                margin-top: 5px;
-            }
+        .rule-number {
+            color: var(--neon-green);
+            font-weight: bold;
+            margin-right: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
         
-            .sub-rule {
-                margin-left: 25px;
-                margin-top: 10px;
-                padding-left: 15px;
-                border-left: 1px dashed rgba(8, 247, 254, 0.2);
-            }
+        .rule-content {
+            line-height: 1.7;
+            color: #d1d1d1;
+            margin-top: 5px;
+        }
         
-            footer {
-                text-align: center;
-                margin-top: 60px;
-                padding: 20px;
-                color: #666;
-                font-size: 0.9rem;
-                border-top: 1px solid #333;
-                opacity: 0;
-                animation: fadeIn 3s forwards;
-                animation-delay: 2s;
-            }
+        .sub-rule {
+            margin-left: 25px;
+            margin-top: 10px;
+            padding-left: 15px;
+            border-left: 1px dashed rgba(8, 247, 254, 0.2);
+        }
         
-            .neon-btn {
-                display: inline-block;
-                padding: 12px 30px;
-                background: transparent;
-                color: var(--neon-green);
-                border: 2px solid var(--neon-green);
-                border-radius: 30px;
-                font-family: 'Orbitron', sans-serif;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin: 10px;
-                cursor: pointer;
-                transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-                text-decoration: none;
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+            animation-delay: 2s;
+        }
+        
+        @keyframes pulse {
+            0% { 
+                text-shadow: 0 0 10px rgba(8, 247, 254, 0.7); 
                 box-shadow: 0 0 10px rgba(9, 251, 211, 0.3);
-                animation: pulse 3s infinite alternate;
             }
-        
-            .neon-btn:hover {
-                background: var(--neon-green);
-                color: black;
+            100% { 
+                text-shadow: 0 0 20px rgba(8, 247, 254, 0.9), 0 0 30px rgba(8, 247, 254, 0.5); 
                 box-shadow: 0 0 20px rgba(9, 251, 211, 0.6);
-                transform: translateY(-3px);
             }
+        }
         
-            @keyframes pulse {
-                0% { 
-                    text-shadow: 0 0 10px rgba(8, 247, 254, 0.7); 
-                    box-shadow: 0 0 10px rgba(9, 251, 211, 0.3);
-                }
-                100% { 
-                    text-shadow: 0 0 20px rgba(8, 247, 254, 0.9), 0 0 30px rgba(8, 247, 254, 0.5); 
-                    box-shadow: 0 0 20px rgba(9, 251, 211, 0.6);
-                }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
-            @keyframes fadeInUp {
-                from { 
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to { 
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
             }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
-            @keyframes fadeInDown {
-                from { 
-                    opacity: 0;
-                    transform: translateY(-50px);
-                }
-                to { 
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(-20px);
             }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
         
-            @keyframes fadeInRight {
-                from { 
-                    opacity: 0;
-                    transform: translateX(-20px);
-                }
-                to { 
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-        
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-        
-            .particles {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0.3;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles-js"></div>
-    
     <div class="navbar">
-        <a href="index.html">Главная</a>
-        <a href="home.html">О проекте</a>
-        <a href="rules.html">Правила</a>
-        <a href="https://t.me/DragonDemonic_bot">Бот</a>
-        <a href="https://t.me/DragonDemonic_channel">Новости</a>
-        <a href="https://t.me/DragonDemonic_chat">Беседа</a>
+        <div class="main-links">
+            <a href="index.html">Главная</a>
+            <a href="home.html">О проекте</a>
+            <a href="rules.html">Правила</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Меню</button>
+            <div class="dropdown-content">
+                <a href="https://t.me/DragonDemonic_bot">Бот</a>
+                <a href="https://t.me/DragonDemonic_channel">Новости</a>
+                <a href="https://t.me/DragonDemonic_chat">Беседа</a>
+            </div>
+        </div>
     </div>
     
     <div class="container">
         <header>
             <h1 class="neon">Правила Бота</h1>
             <div class="subtitle">Соблюдайте эти правила для комфортной игры</div>
-            <a href="https://t.me/DragonDemonic_bot" class="neon-btn">Бот</a>
-            <a href="https://t.me/DragonDemonic_channel" class="neon-btn">Новости</a>
-            <a href="https://t.me/DragonDemonic_chat" class="neon-btn">Беседа</a>
         </header>
         
         <div class="rules-section" style="--delay: 1">
             <h2 class="section-title">1. Основные запреты</h2>
-            
             <div class="rule-item" style="--delay: 1">
-                <div>
-                    <span class="rule-number">1.1</span>
-                    <span class="rule-content">
-                        Запрещена любая реклама сторонних проектов без согласования с администрацией.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Включая группы, каналы и другие боты<br>
-                    • Реклама в любом виде запрещена
-                </div>
+                <div><span class="rule-number">1.1</span><span class="rule-content">Запрещена любая реклама сторонних проектов без согласования с администрацией.</span></div>
+                <div class="sub-rule">• Включая группы, каналы и другие боты<br>• Реклама в любом виде запрещена</div>
             </div>
-            
             <div class="rule-item" style="--delay: 2">
-                <div>
-                    <span class="rule-number">1.2</span>
-                    <span class="rule-content">
-                        Не допускаются расистские, религиозные или политические споры.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Оскорбления по национальному признаку строго запрещены<br>
-                    • Религиозные дискуссии не разрешены<br>
-                    • Политические споры будут пресекаться
-                </div>
+                <div><span class="rule-number">1.2</span><span class="rule-content">Не допускаются расистские, религиозные или политические споры.</span></div>
+                <div class="sub-rule">• Оскорбления по национальному признаку строго запрещены<br>• Религиозные дискуссии не разрешены<br>• Политические споры будут пресекаться</div>
             </div>
-            
             <div class="rule-item" style="--delay: 3">
-                <div>
-                    <span class="rule-number">1.3</span>
-                    <span class="rule-content">
-                        Запрещено оскорблять других участников или провоцировать конфликты.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Уважайте друг друга<br>
-                    • Конструктивная критика допустима<br>
-                    • Оскорбления приведут к бану
-                </div>
+                <div><span class="rule-number">1.3</span><span class="rule-content">Запрещено оскорблять других участников или провоцировать конфликты.</span></div>
+                <div class="sub-rule">• Уважайте друг друга<br>• Конструктивная критика допустима<br>• Оскорбления приведут к бану</div>
             </div>
         </div>
         
         <div class="rules-section" style="--delay: 2">
             <h2 class="section-title">2. Общение и поведение</h2>
-            
             <div class="rule-item" style="--delay: 1">
-                <div>
-                    <span class="rule-number">2.1</span>
-                    <span class="rule-content">
-                        Не нарушайте покой в голосовом чате.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Громкие звуки запрещены<br>
-                    • Крики и шумы недопустимы<br>
-                    • Фоновая музыка только в специальных каналах
-                </div>
+                <div><span class="rule-number">2.1</span><span class="rule-content">Не нарушайте покой в голосовом чате.</span></div>
+                <div class="sub-rule">• Громкие звуки запрещены<br>• Крики и шумы недопустимы<br>• Фоновая музыка только в специальных каналах</div>
             </div>
-            
             <div class="rule-item" style="--delay: 2">
-                <div>
-                    <span class="rule-number">2.2</span>
-                    <span class="rule-content">
-                        Запрещены флуд и спам.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Повторяющиеся сообщения запрещены<br>
-                    • Массовые упоминания наказуемы<br>
-                    • Бессмысленный контент удаляется
-                </div>
+                <div><span class="rule-number">2.2</span><span class="rule-content">Запрещены флуд и спам.</span></div>
+                <div class="sub-rule">• Повторяющиеся сообщения запрещены<br>• Массовые упоминания наказуемы<br>• Бессмысленный контент удаляется</div>
             </div>
-            
             <div class="rule-item" style="--delay: 3">
-                <div>
-                    <span class="rule-number">2.3</span>
-                    <span class="rule-content">
-                        Не копируйте аккаунты администрации и бота.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Имитация администраторов запрещена<br>
-                    • Копирование бота наказуемо<br>
-                    • Вводящие в заблуждение ники будут изменены
-                </div>
+                <div><span class="rule-number">2.3</span><span class="rule-content">Не копируйте аккаунты администрации и бота.</span></div>
+                <div class="sub-rule">• Имитация администраторов запрещена<br>• Копирование бота наказуемо<br>• Вводящие в заблуждение ники будут изменены</div>
             </div>
         </div>
         
         <div class="rules-section" style="--delay: 3">
             <h2 class="section-title">3. Финансовые правила</h2>
-            
             <div class="rule-item" style="--delay: 1">
-                <div>
-                    <span class="rule-number">3.1</span>
-                    <span class="rule-content">
-                        Запрещена продажа "схем заработка".
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Обман игроков недопустим<br>
-                    • Финансовые пирамиды запрещены<br>
-                    • Мошенничество приведет к бану
-                </div>
+                <div><span class="rule-number">3.1</span><span class="rule-content">Запрещена продажа "схем заработка".</span></div>
+                <div class="sub-rule">• Обман игроков недопустим<br>• Финансовые пирамиды запрещены<br>• Мошенничество приведет к бану</div>
             </div>
-            
             <div class="rule-item" style="--delay: 2">
-                <div>
-                    <span class="rule-number">3.2</span>
-                    <span class="rule-content">
-                        Любые формы попрошайничества запрещены.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Просьбы дать валюту наказуемы<br>
-                    • Требования подарков недопустимы<br>
-                    • Давление на других игроков запрещено
-                </div>
+                <div><span class="rule-number">3.2</span><span class="rule-content">Любые формы попрошайничества запрещены.</span></div>
+                <div class="sub-rule">• Просьбы дать валюту наказуемы<br>• Требования подарков недопустимы<br>• Давление на других игроков запрещено</div>
             </div>
-            
             <div class="rule-item" style="--delay: 3">
-                <div>
-                    <span class="rule-number">3.3</span>
-                    <span class="rule-content">
-                        Продажа/покупка валюты строго запрещена.
-                    </span>
-                </div>
-                <div class="sub-rule">
-                    • Обмен на реальные деньги наказуем<br>
-                    • Торговля аккаунтами запрещена<br>
-                    • Передача ценностей между ботами не разрешена
-                </div>
+                <div><span class="rule-number">3.3</span><span class="rule-content">Продажа/покупка валюты строго запрещена.</span></div>
+                <div class="sub-rule">• Обмен на реальные деньги наказуем<br>• Торговля аккаунтами запрещена<br>• Передача ценностей между ботами не разрешена</div>
             </div>
         </div>
         
@@ -396,112 +330,5 @@
             <p>© 2025 Игровой Telegram Бот. Все права защищены.</p>
         </footer>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 60,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#09fbd3"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 0.5,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 200,
-                        "color": "#08f7fe",
-                        "opacity": 0.2,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 0.8,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 180,
-                            "line_linked": {
-                                "opacity": 0.5
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 3
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.rules-section, .rule-item');
-                elements.forEach(el => {
-                    const elementPosition = el.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    if(elementPosition < screenPosition) {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translate(0)';
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll();
-            setTimeout(() => {
-                document.querySelector('header').style.opacity = '1';
-            }, 300);
-        });
-    </script>
 </body>
 </html>
